@@ -1,0 +1,3 @@
+streamlit_webrtc
+cv2
+numpy
