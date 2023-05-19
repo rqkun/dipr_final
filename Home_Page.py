@@ -23,6 +23,6 @@ st.markdown(
     - 📷 Image Processing (Chapter 3,4,5,9)
     ### Contact:
     - Gmail: nhkduy0809@gmail.com
-    - Github: [github.com](https://github.com/rqkun)
+    - Github: [rqkun](https://github.com/rqkun)
 """
 )
