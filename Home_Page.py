@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.write("# DIPR430685 - FINAL👾")
+st.write("# DIPR430685 - FINAL🧰️")
 st.write("20133030 - Ngô Hoàng Khánh Duy")
 tools.add_logo()
 
@@ -22,7 +22,7 @@ st.markdown(
     - 👥 Face Regconition
     - 📷 Image Processing (Chapter 3,4,5,9)
     ### Contact:
-    - Gmail: nhkduy0809@gmail.com
-    - Github: [rqkun](https://github.com/rqkun)
+    - ✉️ Gmail: (nhkduy0809@gmail.com)
+    - 👾 Github: ([rqkun](https://github.com/rqkun))
 """
 )
