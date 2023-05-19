@@ -10,35 +10,12 @@ st.write(
     """"""
 )
 
-FRAME_WINDOW = st.image([])
-deviceId = 0
-cap = cv.VideoCapture(deviceId)
+def OpenColor(uploaded_file):
+    img_color = cv.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv.IMREAD_COLOR)
+    imageRGB = cv.cvtColor(img_color , cv.COLOR_BGR2RGB)
+    return imageRGB
 
-
-if 'stop' not in st.session_state:
-    st.session_state.stop = False
-    stop = False
-
-press_det = st.button('Stop')
-if press_det:
-    if st.session_state.stop == False:
-        st.session_state.stop = True
-        cap.release()
-    else:
-        st.session_state.stop = False
-
-print('Stop button down.', st.session_state.stop)
-
-if 'frame_stop' not in st.session_state:
-    frame_stop = cv.imread('images/stop.jpg')
-    st.session_state.frame_stop = frame_stop
-    print('Loaded stop.jpg')
-
-if st.session_state.stop == True:
-    FRAME_WINDOW.image(st.session_state.frame_stop, channels='BGR')
-
-
-def visualize(input, faces, fps, thickness=2):
+def visualize(input, faces, thickness=2):
     if faces[1] is not None:
         for idx, face in enumerate(faces[1]):
             # print('Face {}, top-left coordinates: ({:.0f}, {:.0f}), box width: {:.0f}, box height {:.0f}, score: {:.2f}'.format(idx, face[0], face[1], face[2], face[3], face[-1]))
@@ -50,38 +27,25 @@ def visualize(input, faces, fps, thickness=2):
             cv.circle(input, (coords[8], coords[9]), 2, (0, 255, 0), thickness)
             cv.circle(input, (coords[10], coords[11]), 2, (255, 0, 255), thickness)
             cv.circle(input, (coords[12], coords[13]), 2, (0, 255, 255), thickness)
-    cv.putText(input, 'FPS: {:.2f}'.format(fps), (1, 16), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-detector = cv.FaceDetectorYN.create(
-    'models/face_detect/face_detection_yunet_2022mar.onnx',
-    "",
-    (320, 320),
-    0.9,
-    0.3,
-    5000
-)
-
-tm = cv.TickMeter()
-frameWidth = int(cap.get(cv.CAP_PROP_FRAME_WIDTH))
-frameHeight = int(cap.get(cv.CAP_PROP_FRAME_HEIGHT))
-detector.setInputSize([frameWidth, frameHeight])
-
-while True:
-    hasFrame, frame = cap.read()
-    if not hasFrame:
-        print('No frames grabbed!')
-        break
-
-    frame = cv.resize(frame, (frameWidth, frameHeight))
-
-    # Inference
-    tm.start()
+FRAME_WINDOW = st.image([])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+if uploaded_file is not None:
+    img_color = OpenColor(uploaded_file)
+    FRAME_WINDOW = st.image(img_color)
+    detector = cv.FaceDetectorYN.create(
+        'models/face_detect/face_detection_yunet_2022mar.onnx',
+        "",
+        (320, 320),
+        0.9,
+        0.3,
+        5000
+    )
+    frameWidth ,frameHeight = img_color.shape[:2]
+    detector.setInputSize([frameWidth, frameHeight])
+    frame = cv.resize(img_color, (frameWidth, frameHeight))
     faces = detector.detect(frame) # faces is a tuple
-    tm.stop()
-
     # Draw results on the input image
-    visualize(frame, faces, tm.getFPS())
-
+    visualize(frame, faces)
     # Visualize results
-    FRAME_WINDOW.image(frame, channels='BGR')
-cv.destroyAllWindows()
+    FRAME_WINDOW.image(frame, channels='RGB')
