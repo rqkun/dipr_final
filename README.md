@@ -2,8 +2,8 @@
 
 ### 20133030 - Ngô Hoàng Khánh Duy
 ## About
-Link: https://rqkun-dipr-final-home-page-dipr-project-af6mpl.streamlit.app/
 This is a project for DIPR430685_22_2_10 🎥 class. The project was built using Python 3 on streamlit with 3 different pages.
+Link: https://rqkun-dipr-final-home-page-dipr-project-af6mpl.streamlit.app/
 ## Which include:
 
     👤 Face Detection
