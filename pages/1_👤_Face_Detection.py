@@ -41,7 +41,8 @@ if uploaded_file is not None:
         0.3,
         5000
     )
-    frameWidth ,frameHeight = img_color.shape[:2]
+    frameWidth = img_color.shape[1]
+    frameHeight = img_color.shape[0]
     detector.setInputSize([frameWidth, frameHeight])
     frame = cv.resize(img_color, (frameWidth, frameHeight))
     faces = detector.detect(frame) # faces is a tuple
