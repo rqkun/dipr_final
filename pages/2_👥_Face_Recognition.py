@@ -31,7 +31,7 @@ def visualize(input, faces, thickness=2):
             cv.circle(input, (coords[12], coords[13]), 2, (0, 255, 255), thickness)
 
 FRAME_WINDOW = st.image([])
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif","bmp"])
 if uploaded_file is not None:
     
     img_color = OpenColor(uploaded_file)
