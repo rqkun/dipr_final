@@ -9,6 +9,7 @@ import libs.common as tools
 st.set_page_config(page_title="Image Processing", page_icon="📷",initial_sidebar_state="expanded")
 tools.add_logo()
 
+FILE_TYPE = ["jpg", "jpeg", "png","tif","bmp"]
 st.markdown("# 📷 Image Processing")
 
 st.write("""""")
@@ -24,7 +25,7 @@ def OpenColor(uploaded_file):
     return imageRGB
 
 def onNegative():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -37,7 +38,7 @@ def onNegative():
                     st.image(imgout, clamp=True)
 
 def onLogarit():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             col1, col2 = st.columns(2)
             img_grey = OpenGrey(uploaded_file)
@@ -51,7 +52,7 @@ def onLogarit():
                     st.image(imgout, clamp=True)
 
 def onPower():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -64,7 +65,7 @@ def onPower():
                     st.image(imgout, clamp=True)
 
 def onPiecewiseLinear():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -77,7 +78,7 @@ def onPiecewiseLinear():
                     st.image(imgout, clamp=True)
 
 def onHistogram():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             col1, col2 = st.columns(2)
             with col1:
@@ -90,7 +91,7 @@ def onHistogram():
                     st.image(imgout, clamp=True)
 
 def onHistEqual():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -103,7 +104,7 @@ def onHistEqual():
                     st.image(imgout, clamp=True)
 
 def onHistEqualColor():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             col1, col2 = st.columns(2)
             with col1:
@@ -116,7 +117,7 @@ def onHistEqualColor():
                     st.image(imgout, clamp=True)
 
 def onLocalHist():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -129,7 +130,7 @@ def onLocalHist():
                     st.image(imgout, clamp=True)
 
 def onHistStat():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -142,7 +143,7 @@ def onHistStat():
                     st.image(imgout, clamp=True)
 
 def onBoxFilter():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -155,7 +156,7 @@ def onBoxFilter():
                     st.image(imgout, clamp=True)
 
 def onGaussFilter():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -168,7 +169,7 @@ def onGaussFilter():
                     st.image(imgout, clamp=True)
 
 def onThreshold():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -181,7 +182,7 @@ def onThreshold():
                     st.image(imgout, clamp=True)
 
 def onMedianFilter():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -194,7 +195,7 @@ def onMedianFilter():
                     st.image(imgout, clamp=True)
 
 def onSharpen():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -207,7 +208,7 @@ def onSharpen():
                     st.image(imgout, clamp=True)
 
 def onGradient():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -220,7 +221,7 @@ def onGradient():
                     st.image(imgout, clamp=True)
 
 def onSpectrum():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -233,7 +234,7 @@ def onSpectrum():
                     st.image(imgout, clamp=True)
 
 def onFrequencyFilter():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -250,7 +251,7 @@ def onDrawNotchRejectFilter():
             imgout = ch4.DrawNotchRejectFilter()
             st.image(imgout, clamp=True)
 def onRemoveMoire():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -262,7 +263,7 @@ def onRemoveMoire():
                     imgout = ch4.RemoveMoire(img_grey)
                     st.image(imgout, clamp=True)
 def onCreateMotionNoise():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -274,7 +275,7 @@ def onCreateMotionNoise():
                     imgout = ch5.CreateMotionNoise(img_grey)
                     st.image(imgout, clamp=True)
 def onDenoiseMotion():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -286,7 +287,7 @@ def onDenoiseMotion():
                     imgout = ch5.DenoiseMotion(img_grey)
                     st.image(imgout, clamp=True)
 def onDenoisestMotion():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -299,7 +300,7 @@ def onDenoisestMotion():
                     imgout = ch5.DenoiseMotion(temp)
                     st.image(imgout, clamp=True)
 def onConnectedComponent():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
@@ -311,7 +312,7 @@ def onConnectedComponent():
                     imgout = ch9.ConnectedComponent(img_grey)
                     st.image(imgout, clamp=True)
 def onCountRice():
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","tif"])
+        uploaded_file = st.file_uploader("Choose an image...", type=FILE_TYPE)
         if uploaded_file is not None:
             img_grey = OpenGrey(uploaded_file)
             col1, col2 = st.columns(2)
